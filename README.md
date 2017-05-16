@@ -1,4 +1,4 @@
-edge-sql
+edge-ms-sql
 =======
 
 This is a SQL compiler for edge.js. It allows accessing SQL databases from Node.js using Edge.js and ADO.NET. 
