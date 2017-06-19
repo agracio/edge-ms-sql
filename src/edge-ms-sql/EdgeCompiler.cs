@@ -7,7 +7,9 @@ using System.Data.SqlClient;
 
 public class EdgeCompiler
 {
-    public Func<object, Task<object>> CompileFunc(IDictionary<string, object> parameters)
+    public Func<object, Task<object>> CompileFunc(
+        IDictionary<string, 
+        object> parameters)
     {
         string command = ((string)parameters["source"]).TrimStart();
         string connectionString = Environment.GetEnvironmentVariable("EDGE_SQL_CONNECTION_STRING");
@@ -28,10 +30,11 @@ public class EdgeCompiler
         if (command.StartsWith("select ", StringComparison.InvariantCultureIgnoreCase))
         {
             return async (queryParameters) => await 
-            ExecuteQuery(connectionString, 
-            command, 
-            (IDictionary<string, object>)queryParameters, 
-            commandTimeout);
+            ExecuteQuery(
+                connectionString, 
+                command, 
+                (IDictionary<string, object>)queryParameters, 
+                commandTimeout);
         }
         if (command.StartsWith("insert ", StringComparison.InvariantCultureIgnoreCase)
             || command.StartsWith("update ", StringComparison.InvariantCultureIgnoreCase)
@@ -52,7 +55,15 @@ public class EdgeCompiler
                     (IDictionary<string, object>)queryParameters,
                     commandTimeout);
         }
-        throw new InvalidOperationException("Unsupported type of SQL command. Only select, insert, update, delete, and exec are supported.");
+        // Try running other SQL commands as complex SELECT commands
+        return async (queryParameters) => await 
+            ExecuteQuery(
+                connectionString, 
+                command, 
+                (IDictionary<string, object>)queryParameters, 
+                commandTimeout);
+        
+        //throw new InvalidOperationException("Unsupported type of SQL command. Only select, insert, update, delete, and exec are supported.");
     }
 
     void AddParamaters(
