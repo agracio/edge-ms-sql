@@ -1,12 +1,12 @@
 {
   "name": "edge-ms-sql",
 
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Edge-sql: access SQL databases from Node.js using Edge.js and ADO.NET",
   "tags" : ["edge", "net", "clr", "c#", "managed", ".net", "ado.net"],
   "main": "./lib/edge-ms-sql.js",
   "engines": { "node": ">= 0.6" },
-  "licenses": [ { "type": "Apache", "url": "http://www.apache.org/licenses/LICENSE-2.0" } ],
+  "license" : "MIT",
   "dependencies": {
   },
   "repository": {
