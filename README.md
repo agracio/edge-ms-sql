@@ -32,11 +32,11 @@ Differences from `edge-sql`
  * Provides optional `commandTimeout` parameter to set command timeout.
  * Attempts to treat all other types of SQL statements as `select` instead of throwing exception. This allows to execute complex SQL queries that declare variables and temp tables before running `select` statement.
  
- ## Basic usage
+### Basic usage
  
- For basic usage refer to [Edge.js](https://github.com/tjanczuk/edge#how-to-script-t-sql-in-a-nodejs-application) documentation.
+For basic usage refer to [Edge.js](https://github.com/tjanczuk/edge#how-to-script-t-sql-in-a-nodejs-application) documentation.
  
- ### Advanced usage
+### Advanced usage
  
 Using variables
 
