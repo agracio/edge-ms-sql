@@ -1,7 +1,7 @@
 {
   "name": "edge-ms-sql",
 
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Edge-sql: access MS SQL databases from Node.js using Edge.js and ADO.NET",
   "tags" : ["edge", "net", "clr", "c#", "managed", ".net", "ado.net"],
   "main": "./lib/edge-ms-sql.js",
