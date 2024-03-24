@@ -110,3 +110,4 @@ UpgradeLog*.XML
 .vs/
 .idea/
 src/edge-ms-sql/.idea
+src/test/*
