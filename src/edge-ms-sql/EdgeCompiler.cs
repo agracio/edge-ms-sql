@@ -7,22 +7,18 @@ using System.Data.SqlClient;
 
 public class EdgeCompiler
 {
-    public Func<object, Task<object>> CompileFunc(
-        IDictionary<string, 
-        object> parameters)
+    public Func<object, Task<object>> CompileFunc(IDictionary<string, object> parameters)
     {
         string command = ((string)parameters["source"]).TrimStart();
         string connectionString = Environment.GetEnvironmentVariable("EDGE_SQL_CONNECTION_STRING");
         int? commandTimeout = null;
 
-        object connectionStringTmp;
-        if (parameters.TryGetValue("connectionString", out connectionStringTmp))
+        if (parameters.TryGetValue("connectionString", out var connectionStringTmp))
         {
             connectionString = (string)connectionStringTmp;
         }
 
-        object commandTimeoutTmp;
-        if (parameters.TryGetValue("commandTimeout", out commandTimeoutTmp))
+        if (parameters.TryGetValue("commandTimeout", out var commandTimeoutTmp))
         {
             commandTimeout = (int)commandTimeoutTmp;
         }

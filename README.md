@@ -1,11 +1,9 @@
 edge-ms-sql
 =======
 
-SQL Server compiler for [Edge.js](https://github.com/agracio/edge-js). It allows accessing SQL Sever databases from Node.js using Edge.js and ADO.NET. 
+MS SQL Server compiler for [Edge.js](https://github.com/agracio/edge-js). It allows accessing SQL Sever databases from Node.js using Edge.js and ADO.NET. 
 
 This is a fork of [edge-sql](https://github.com/tjanczuk/edge-sql) providing improvements to the original implementation.
-
->Example code uses `edge-js` instead of `edge` but it will work with either flavour of Edge.js.
 
 ## Why use `edge-ms-sql`?
 
@@ -15,28 +13,6 @@ Differences from `edge-sql`
  * Attempts to treat all other types of SQL statements as `select` instead of throwing exception. This allows to execute complex SQL queries that declare variables and temp tables before running `select` statement.
 
 ## Usage 
-
-Usage is the same as edge-sql, replace 'sql' language definition with 'ms-sql':
-
-```bash
-npm install edge-js
-npm install edge-ms-sql
-```
-
-```diff
-var edge = require('edge-js');
-
--var getTop10Products = edge.func('sql', function () {/*
-+var getTop10Products = edge.func('ms-sql', function () {/*
-    select top 10 * from Products
-*/});
-
-getTop10Products(null, function (error, result) {
-    if (error) throw error;
-    console.log(result);
-});
-```
-
 
 ### Supported SQL statements
 
