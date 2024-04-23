@@ -1,6 +1,10 @@
 edge-ms-sql
 =======
 
+# This package is now deprecated in favor of `edge-sql`
+## NPM: https://www.npmjs.com/package/edge-sql
+## GitHub: https://github.com/agracio/edge-sql 
+
 MS SQL Server compiler for [Edge.js](https://github.com/agracio/edge-js). It allows accessing SQL Sever databases from Node.js using Edge.js and ADO.NET. 
 
 This is a fork of [edge-sql](https://github.com/tjanczuk/edge-sql) providing improvements to the original implementation.
